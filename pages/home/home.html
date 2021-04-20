@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>ELECTRICITY COST CALCULATOR</h2>
+  <p>
+    This calculator app determines energy consumed and cost per day from total power consumption, hours of use, and cost.
+  </p>
+  <p>
+    This can help in knowing how much must be paid for an electricity bill.
+  </p>
+  <br />
+
+<ion-item>
+  <ion-label>Power Consumption [wattage]:</ion-label>
+  <ion-input type="number" [(ngModel)]="consumption"></ion-input>
+</ion-item>
+<ion-item>  
+  <ion-label>Hours of Use:</ion-label>
+  <ion-input type="number" [(ngModel)]="hours"></ion-input>
+</ion-item>
+<ion-item>  
+  <ion-label>Cost [per kWh]:</ion-label>
+  <ion-input type="number" [(ngModel)]="cost"></ion-input>
+</ion-item>
+<button ion-button color="secondary" (click)="calculateenergyconsumed(); calculatecostperday ()">CALCULATE</button>
+<ion-item *ngIf="energyconsumed">
+  <h2>Energy Consumed per day = {{energyconsumed}} kWh <code> {{energyconsumedMessage}}</code></h2>
+</ion-item>
+<ion-item *ngIf="costperday">
+  <h3>Cost Per Day = {{costperday}} <code> {{costperdayMessage}}</code></h3>
+</ion-item>
